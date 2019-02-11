@@ -1,19 +1,26 @@
 def temperature(valeur):
-     if(valeur < 23.2 and valeur > 20.8):
+    if(valeur < 23.2 and valeur > 20.8):
         return "[20.8;23.2]"
     elif(valeur < 24.5 and valeur >= 23.2):
-
+        return "[23.2;24.5]"
     elif(valeur > 19.5 and valeur <= 20.8):
-        
-    elif(valeur < 26
-    elif(valeur > 18):
-        return 3
-    elif(valeur < 27 and valeur > 17):
-        return 2
-    elif(valeur < 28 and valeur > 16):
-        return 1
-    else:
-        return 0
+        return "[19.5;20.8]"
+    elif(valeur < 26 and valeur >= 24.5):
+        return "[24.5;26]"
+    elif(valeur > 18 and valeur <= 19.5):
+        return "[18;19.5]"
+    elif(valeur < 27 and valeur >= 26):
+        return "[26;27]"
+    elif( valeur > 17 and valeur <= 18):
+        return "[17;18]"
+    elif(valeur < 28 and valeur >= 27):
+        return "[27;28]"
+    elif(valeur > 16 and valeur <= 17):
+        return "[16;17]"
+    elif(valeur < 16):
+        return "[<16]"
+    elif(valeur > 28):
+        return "[>28]"
 
 def luminosite(valeur):
 	if(valeur > 1100 and valeur <= 1300):
