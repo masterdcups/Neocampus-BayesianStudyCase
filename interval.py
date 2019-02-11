@@ -23,7 +23,26 @@ def temperature(valeur):
         return "[>28]"
 
 def luminosite(valeur):
-    return ""
+	if(valeur > 1100 and valeur <= 1300):
+    	return "[1100;1300]"
+    elif(valeur > 1000 and valeur <= 1100):
+    	return "[1000;1100]"
+    elif(valeur > 950 and valeur <= 1000)
+    	return "[950;1000]"
+    elif(valeur > 900 and valeur <= 950):
+    	return "[900;950]"
+    elif(valeur > 600 and valeur <= 900):
+        return "[600;900]"
+    elif(valeur > 550 and valeur <= 600):
+        return "[550;600]"
+    elif(valeur > 500 and valeur <= 550):
+        return "[500;550]"
+    elif(valeur > 400 and valeur <= 500):
+        return "[400;500]"
+    elif(valeur > 200 and valeur <= 400):
+        return "[200;400]"
+    else:
+        return 0
 
 def co2(valeur):
     return ""
@@ -49,21 +68,6 @@ def temperature(valeur):
     elif(valeur < 27 and valeur > 17):
         return 2
     elif(valeur < 28 and valeur > 16):
-        return 1
-    else:
-        return 0
-
-# Annotation d'une valeur de luminosité selon les seuils définis
-def luminosite(valeur):
-    if(valeur > 600 and valeur < 900):
-        return 5
-    elif(valeur > 550 and valeur < 950):
-        return 4
-    elif(valeur > 500 and valeur < 1000):
-        return 3
-    elif(valeur > 400 and valeur < 1100):
-        return 2
-    elif(valeur > 200 and valeur < 1300):
         return 1
     else:
         return 0
