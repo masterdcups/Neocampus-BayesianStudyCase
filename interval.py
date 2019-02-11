@@ -41,8 +41,10 @@ def luminosite(valeur):
         return "[400;500]"
     elif(valeur > 200 and valeur <= 400):
         return "[200;400]"
-    else:
-        return 0
+    elif(valeur > 1300):
+        return "[>1300]"
+    elif(valeur < 200):
+        return "[<200]"
 
 def co2(valeur):
 	if(valeur > 0 and valeur <= 400):
@@ -56,7 +58,7 @@ def co2(valeur):
     elif(valeur > 1000 and valeur <= 1200):
         return "[1000;1200]"
     else:
-        return 0
+        return "[>1200]"
 
 def humidite(valeur):
 	if(valeur > 70 and valeur <= 80):
@@ -77,28 +79,7 @@ def humidite(valeur):
         return "[30;37]"
     elif(valeur > 20 and valeur <= 30):
         return "[20;30]"
+    elif(valeur < 20):
+        return "[<20]"
     else:
-        return 0
-
-# -*- coding: utf-8 -*-
-"""
-Annotation des données selon un seuil défini par les spécifications du Google doc suivant :
-https://docs.google.com/document/d/1vtwxloreLhoaFz1Pv8dX8Ovy9aDcBi80iWPXRxZvmLY/edit
-
-"""
-
-# Annotation d'une situation globale pour un capteur, en regroupant les valeurs trouvées durant des périodes de deux minutes, pour les différentes mesures.
-def annotationCapteur(valeurTemperature, valeurLuminosite, valeurCo2, valeurHumidite):
-    annotationRetour = 0
-    # Définition de poids, selon l'importance d'un critère pour l'humain
-    # Poids définis ici après un vote entre les membres du groupe
-    poidsTemperature = 0.3
-    poidsLuminosite = 0.2
-    poidsCo2 = 0.4
-    poidsHumidite = 0.1
-    annotationRetour += poidsTemperature * temperature(valeurTemperature)
-    annotationRetour += poidsLuminosite * luminosite(valeurLuminosite)
-    annotationRetour += poidsCo2 * co2(valeurCo2)
-    annotationRetour += poidsHumidite * humidite(valeurHumidite)
-
-    return str(annotationRetour);
+        return "[>80]"
