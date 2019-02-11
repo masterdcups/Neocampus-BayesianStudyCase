@@ -38,10 +38,40 @@ def luminosite(valeur):
         return 0
 
 def co2(valeur):
-    return ""
+	if(valeur > 0 and valeur <= 400):
+        return "[0;400]"
+    elif(valeur > 400 and valeur <= 600):
+        return "[400;600]"
+    elif(valeur > 600 and valeur <= 800):
+        return "[600;800]"
+    elif(valeur > 800 and valeur <= 1000):
+        return "[800;1000]"
+    elif(valeur > 1000 and valeur <= 1200):
+        return "[1000;1200]"
+    else:
+        return 0
 
 def humidite(valeur):
-    return ""
+	if(valeur > 70 and valeur <= 80):
+		return "[70;80]"
+	elif(valeur > 63 and valeur <= 70):
+		return "[63;70]"
+	elif(valeur > 58 and valeur <= 63):
+		return "[58;63]"
+	elif(valeur > 55 and valeur <= 58):
+		return "[55;58]"
+    elif(valeur > 45 and valeur <= 55):
+        return "[45;55]"
+    elif(valeur > 42 and valeur <= 45):
+        return "[42;45]"
+    elif(valeur > 37 and valeur <= 42):
+        return "[37;42]"
+    elif(valeur > 30 and valeur <= 37):
+        return "[30;37]"
+    elif(valeur > 20 and valeur <= 30):
+        return "[20;30]"
+    else:
+        return 0
 
 # -*- coding: utf-8 -*-
 """
@@ -49,51 +79,6 @@ Annotation des données selon un seuil défini par les spécifications du Google
 https://docs.google.com/document/d/1vtwxloreLhoaFz1Pv8dX8Ovy9aDcBi80iWPXRxZvmLY/edit
 
 """
-
-# Annotation d'une valeur de température selon les seuils définis
-def temperature(valeur):
-    if(valeur < 23.2 and valeur > 20.8):
-        return 5
-    elif(valeur < 24.5 and valeur > 19.5):
-        return 4
-    elif(valeur < 26 and valeur > 18):
-        return 3
-    elif(valeur < 27 and valeur > 17):
-        return 2
-    elif(valeur < 28 and valeur > 16):
-        return 1
-    else:
-        return 0
-
-# Annotation d'une valeur de co2 selon les seuils définis
-def co2(valeur):
-    if(valeur<400):
-        return 5
-    elif(valeur<600):
-        return 4
-    elif(valeur<800):
-        return 3
-    elif(valeur<1000):
-        return 2
-    elif(valeur<1200):
-        return 1
-    else:
-        return 0
-
-# Annotation d'une valeur d'humidité selon les seuils définis
-def humidite(valeur):
-    if(valeur < 55 and valeur > 45):
-        return 5
-    elif(valeur < 58 and valeur > 42):
-        return 4
-    elif(valeur < 63 and valeur > 37):
-        return 3
-    elif(valeur < 70 and valeur > 30):
-        return 2
-    elif(valeur < 80 and valeur > 20):
-        return 1
-    else:
-        return 0
 
 # Annotation d'une situation globale pour un capteur, en regroupant les valeurs trouvées durant des périodes de deux minutes, pour les différentes mesures.
 def annotationCapteur(valeurTemperature, valeurLuminosite, valeurCo2, valeurHumidite):
