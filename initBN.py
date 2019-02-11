@@ -22,7 +22,7 @@ def genererDataBN(fichierE,fichierS):
                     period = 1
                 else:
                     period = 0
-                new_line = str(period) + ";" + inter.temperature(float(line[4])) + ";" + inter.luminosite(float(line[5])) + ";" + inter.co2(float(line[6])) + ";" + inter.humidite(float(line[7])) + "\n"
+                new_line = str(period) + ";" + str(inter.temperature(float(line[4]))) + ";" + str(inter.luminosite(float(line[5]))) + ";" + str(inter.co2(float(line[6]))) + ";" + str(inter.humidite(float(line[7]))) + "\n"
 
             #ecriture dans le fichier de sortie    
             fichier.write(new_line)
