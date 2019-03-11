@@ -38,7 +38,49 @@ def creerTables(fichierE):
     matriceLuminosite = np.round(np.divide(matriceLuminosite,nbLignes),decimals=3)
     matriceCo2 = np.round(np.divide(matriceCo2,nbLignes),decimals=3)
     matriceTemperature = np.round(np.divide(matriceTemperature,nbLignes),decimals=3)
-    print(matriceTemperature)
     
+    fichierSTemp = open("./tableProbaTemperature",'w')
+    fichierSTemp.write("\n")
+    for i in range(0,121):
+        ligne = ""
+        for j in range(0,11):
+            ligne += ";" + str(matriceTemperature[i][j])
+
+        ligne += "\n"
+        fichierSTemp.write(ligne)
+    fichierSTemp.close
+
+    fichierSLum = open("./tableProbaLuminosity",'w')
+    fichierSLum.write("\n")
+    for i in range(0,11):
+        ligne = ""
+        for j in range(0,11):
+            ligne += ";" + str(matriceLuminosite[i][j])
+
+        ligne += "\n"
+        fichierSLum.write(ligne)
+    fichierSLum.close
+
+    fichierSHum = open("./tableProbaHumidity",'w')
+    fichierSHum.write("\n")
+    for i in range(0,11):
+        ligne = ""
+        for j in range(0,11):
+            ligne += ";" + str(matriceHumidite[i][j])
+
+        ligne += "\n"
+        fichierSHum.write(ligne)
+    fichierSHum.close
+
+    fichierSCO2= open("./tableProbaCO2",'w')
+    fichierSCO2.write("\n")
+    for i in range(0,6):
+        ligne = ""
+        for j in range(0,6):
+            ligne += ";" + str(matriceCo2[i][j])
+
+        ligne += "\n"
+        fichierSCO2.write(ligne)
+    fichierSCO2.close
 
 creerTables("./dataBNDynamique.csv")
