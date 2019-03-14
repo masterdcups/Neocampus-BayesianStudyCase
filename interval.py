@@ -43,7 +43,7 @@ def luminosite(valeur):
 		return "[200-400]"
 	elif(valeur > 1300):
 		return "[>1300]"
-	elif(valeur < 200):
+	elif(valeur <= 200):
 		return "[<200]"
 
 def co2(valeur):
