@@ -25,8 +25,8 @@ def nb_valeur_fonction(fonction):
 
 
 
-def calcul_score_log_vraissemblance(fp,fd,fonction1,fonction2):
-	matrice_proba = np.zeros((nb_valeur_fonction(fonction1) * nb_valeur_fonction(fonction2),nb_valeur_fonction(fonction1)))
+def calcul_score_log_vraissemblance(fp,fd,fonction1):
+	matrice_proba = np.zeros((nb_valeur_fonction(fonction1),nb_valeur_fonction(fonction1)))
 	val_vraisemblance = 0
 	with open(fp,encoding='utf-8') as f1:
 		reader = csv.reader(f1,delimiter=';')
@@ -36,7 +36,6 @@ def calcul_score_log_vraissemblance(fp,fd,fonction1,fonction2):
 					if num_colonne > 0:
 						matrice_proba[num_ligne - 1,num_colonne - 1] = float(case)
 	
-
 	with open(fd,encoding='utf-8') as f2:
 		reader = csv.reader(f2,delimiter=';')
 		valTemp = ""
@@ -53,8 +52,8 @@ def calcul_score_log_vraissemblance(fp,fd,fonction1,fonction2):
 
 			if(num_ligne > 1):
 				ligne2 = line
-				if (float(matrice_proba[nb_valeur_fonction(fonction2) * appelle_fonction(fonction1,ligne1[1],ligne1[2],ligne1[3],ligne1[4]) + appelle_fonction(fonction2,ligne1[1],ligne1[2],ligne1[3],ligne1[4])][appelle_fonction(fonction1,ligne2[1],ligne2[2],ligne2[3],ligne2[4])]) != 0):
-					val_vraisemblance = val_vraisemblance + math.log(float(matrice_proba[nb_valeur_fonction(fonction2) * appelle_fonction(fonction1,ligne1[1],ligne1[2],ligne1[3],ligne1[4]) + appelle_fonction(fonction2,ligne1[1],ligne1[2],ligne1[3],ligne1[4])][appelle_fonction(fonction1,ligne2[1],ligne2[2],ligne2[3],ligne2[4])])) / math.log(10)
+				if (float(matrice_proba[appelle_fonction(fonction1,ligne1[1],ligne1[2],ligne1[3],ligne1[4])][appelle_fonction(fonction1,ligne2[1],ligne2[2],ligne2[3],ligne2[4])]) != 0):
+					val_vraisemblance = val_vraisemblance + math.log(float(matrice_proba[appelle_fonction(fonction1,ligne1[1],ligne1[2],ligne1[3],ligne1[4])][appelle_fonction(fonction1,ligne2[1],ligne2[2],ligne2[3],ligne2[4])])) / math.log(10)
 				ligne1 = ligne2
 	print(val_vraisemblance)
 
@@ -69,4 +68,4 @@ fichier_donnees = sys.argv[2]
 fonction1 = sys.argv[3]
 fonction2 = sys.argv[4]
 
-calcul_score_log_vraissemblance(fichier_proba,fichier_donnees,fonction1,fonction2)
+calcul_score_log_vraissemblance(fichier_proba,fichier_donnees,fonction)
