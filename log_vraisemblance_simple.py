@@ -65,7 +65,7 @@ fonction2 = ""
 
 fichier_proba = sys.argv[1]
 fichier_donnees = sys.argv[2]
-fonction1 = sys.argv[3]
-fonction2 = sys.argv[4]
+fonction = sys.argv[3]
+
 
 calcul_score_log_vraissemblance(fichier_proba,fichier_donnees,fonction)
