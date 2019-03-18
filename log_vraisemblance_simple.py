@@ -42,8 +42,8 @@ def calcul_score_log_vraissemblance(fp,fd,fonction1):
 		valLum = ""
 		valCo2 = ""
 		valHum = ""
-	    linge1 = ""
-	    ligne2 = ""
+		ligne1 = ""
+		ligne2 = ""
 		for num_ligne,line in enumerate(reader):
 			#première ligne du fichier qui contient la liste des champs
         	
@@ -65,7 +65,7 @@ fonction2 = ""
 
 fichier_proba = sys.argv[1]
 fichier_donnees = sys.argv[2]
-fonction1 = sys.argv[3]
-fonction2 = sys.argv[4]
+fonction = sys.argv[3]
+
 
 calcul_score_log_vraissemblance(fichier_proba,fichier_donnees,fonction)
